@@ -1,0 +1,141 @@
+{
+  "scan_interval_minutes": 60,
+  "min_signal_score": 7.0,
+  "high_priority_threshold": 8.5,
+  
+  "scoring_weights": {
+    "inevitability": 0.4,
+    "moat_potential": 0.35,
+    "timing_window": 0.25
+  },
+  
+  "sectors": {
+    "AI": {
+      "keywords": ["artificial intelligence", "AI", "machine learning", "LLM", "neural network", "transformer"],
+      "weight": 1.0
+    },
+    "Compute": {
+      "keywords": ["GPU", "cloud", "serverless", "edge computing", "distributed"],
+      "weight": 0.9
+    },
+    "Finance": {
+      "keywords": ["fintech", "payment", "settlement", "clearing", "blockchain"],
+      "weight": 0.85
+    },
+    "Bio": {
+      "keywords": ["biotech", "genomics", "CRISPR", "drug discovery", "clinical"],
+      "weight": 0.8
+    },
+    "Infrastructure": {
+      "keywords": ["infrastructure", "platform", "protocol", "network", "middleware"],
+      "weight": 1.0
+    },
+    "Data": {
+      "keywords": ["data", "database", "storage", "warehouse", "lakehouse"],
+      "weight": 0.85
+    }
+  },
+  
+  "signal_sources": {
+    "github": {
+      "enabled": true,
+      "trending_repos_url": "https://github.com/trending",
+      "weight": 0.8
+    },
+    "hackernews": {
+      "enabled": true,
+      "api_url": "https://hacker-news.firebaseio.com/v0",
+      "weight": 0.9
+    },
+    "arxiv": {
+      "enabled": true,
+      "api_url": "http://export.arxiv.org/api/query",
+      "categories": ["cs.AI", "cs.LG", "cs.DC"],
+      "weight": 0.7
+    },
+    "twitter": {
+      "enabled": false,
+      "api_key": "",
+      "weight": 0.6
+    },
+    "reddit": {
+      "enabled": true,
+      "subreddits": ["machinelearning", "programming", "startups", "technology"],
+      "weight": 0.7
+    }
+  },
+  
+  "detection_patterns": {
+    "api_complaints": [
+      "rate limit",
+      "API quota",
+      "throttling",
+      "too many requests",
+      "need better API"
+    ],
+    "integration_pain": [
+      "hard to integrate",
+      "multiple APIs",
+      "no unified",
+      "fragmented",
+      "need aggregator"
+    ],
+    "adoption_signals": [
+      "everyone using",
+      "becoming standard",
+      "industry adoption",
+      "mandatory",
+      "required for"
+    ],
+    "vc_funding": [
+      "Series A",
+      "Series B", 
+      "funding round",
+      "investment",
+      "valuation"
+    ],
+    "moat_indicators": [
+      "network effects",
+      "switching costs",
+      "data advantage",
+      "protocol",
+      "standard"
+    ]
+  },
+  
+  "toll_mechanisms": {
+    "API": {
+      "description": "Per-request routing fees, premium caching, SLA guarantees",
+      "examples": ["Stripe", "Twilio", "OpenAI"]
+    },
+    "Network": {
+      "description": "Transaction fees, network usage, bandwidth costs",
+      "examples": ["Ethereum", "AWS", "Cloudflare"]
+    },
+    "Data": {
+      "description": "Data access fees, storage costs, query charges",
+      "examples": ["Snowflake", "MongoDB Atlas", "Databricks"]
+    },
+    "Platform": {
+      "description": "Platform fees, revenue share, subscription",
+      "examples": ["Shopify", "Unity", "Roblox"]
+    },
+    "Protocol": {
+      "description": "Protocol usage fees, governance tokens, staking",
+      "examples": ["Uniswap", "IPFS", "The Graph"]
+    }
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/tollbooth_seeker.log",
+    "db_path": "data/signals.db"
+  },
+  
+  "alerts": {
+    "enabled": false,
+    "discord_webhook": "",
+    "slack_webhook": "",
+    "email": ""
+  }
+}
